@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-mono: "Share Tech Mono", "JetBrains Mono", monospace;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-hud: "Orbitron", sans-serif;
+
+  --color-chrono-bg: #F6F5F2;
+  --color-chrono-panel: #E5E5E5;
+  --color-chrono-dark: #444444;
+  --color-chrono-black: #111111;
+  --color-chrono-red: #FF1744;
+  --color-chrono-accent: #FF4569;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+  --animate-spin-reverse: spin-reverse 25s linear infinite;
+  --animate-dash: dash 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* Chrome Sphere Styling */
+.chrome-sphere {
+  position: relative;
+  border-radius: 50%;
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.25),
+    inset 0 -10px 20px rgba(0,0,0,0.8),
+    inset 0 10px 20px rgba(255,255,255,0.7),
+    inset 2px 2px 5px rgba(255,255,255,0.8),
+    inset -2px -2px 5px rgba(0,0,0,0.6);
+  background: radial-gradient(
+    circle at 35% 35%,
+    #ffffff 0%,
+    #dedede 15%,
+    #999999 35%,
+    #444444 55%,
+    #1a1a1a 75%,
+    #050505 100%
+  );
+  overflow: hidden;
+}
+
+/* Chrome shiny reflection ring overlay */
+.chrome-reflection {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  right: 3%;
+  bottom: 3%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(255,255,255,0.4) 0%,
+    rgba(255,255,255,0) 60%
+  );
+  pointer-events: none;
+}
+
+/* Metallic dark core highlight to mirror real life */
+.chrome-core {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 65% 65%,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.65) 80%,
+    rgba(0,0,0,0.95) 100%
+  );
+  pointer-events: none;
+}
+
+/* Secondary bounce light from floor (accentuating chrome shape) */
+.chrome-rim-light {
+  position: absolute;
+  bottom: 5%;
+  right: 15%;
+  width: 50%;
+  height: 25%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(255,255,255,0.45) 0%,
+    rgba(255,255,255,0) 70%
+  );
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+/* Custom Tactical Grid styled pattern */
+.tactical-grid {
+  background-size: 40px 40px;
+  background-image: 
+    radial-gradient(circle, rgba(17, 17, 17, 0.05) 1px, transparent 1px);
+}
+
+.isometric-grid {
+  background-size: 80px 80px;
+  background-image:
+    linear-gradient(rgba(17, 17, 17, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.02) 1px, transparent 1px);
+}
+
+/* Perfect Custom Button styles */
+.chevron-button-clip {
+  clip-path: polygon(
+    10px 0%, 
+    100% 0%, 
+    100% calc(100% - 10px), 
+    calc(100% - 10px) 100%, 
+    0% 100%, 
+    0% 10px
+  );
+}
+
+.chevron-button-active-clip {
+  clip-path: polygon(
+    12px 2px, 
+    calc(100% - 2px) 2px, 
+    calc(100% - 2px) calc(100% - 12px), 
+    calc(100% - 12px) calc(100% - 2px), 
+    2px calc(100% - 2px), 
+    2px 12px
+  );
+}
+
+/* Play button exact geometric cut */
+.play-btn-clip {
+  clip-path: polygon(
+    14px 0, 
+    100% 0, 
+    100% 100%, 
+    14px 100%, 
+    0 50%
+  );
+}
+
+/* Soft shadows and sci-fi glowing */
+.chrono-glow-red {
+  box-shadow: 0 0 15px rgba(255, 23, 68, 0.4);
+}
+
+.chrono-glow-white {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom scrollbars and generic fixes */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F5F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #E5E5E5;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444444;
+}
+
